@@ -1,0 +1,37 @@
+.root{
+    -fx-background-color: #181818;
+    -fx-font-size: 10pt;
+}
+
+.title, .subtitle{
+    -fx-text-fill: #fff;
+    -fx-text-fill: #c9c9f1;
+}
+.title{
+    -fx-font-size: 20pt;
+    -fx-font-family: Serif;
+}
+
+.subtitle{
+    -fx-font-size: 15pt;
+}
+
+.container-main{
+    -fx-background-color: #fff;
+    -fx-padding: 10pt;
+}
+
+.button{
+    -fx-border-radius: 10pt;
+    -fx-background-color: #6464be;
+    -fx-text-fill: #fff;
+}
+
+
+.btn-error{
+    -fx-background-color: #be3232;
+}
+
+.btn-secondary{
+    -fx-background-color: #62d562;
+}
