@@ -5,5 +5,6 @@ module com.example.employeesreports {
 
 
     opens com.example.employeesreports to javafx.fxml;
+    opens com.example.employeesreports.models;
     exports com.example.employeesreports;
 }

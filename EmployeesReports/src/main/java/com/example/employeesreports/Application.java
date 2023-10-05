@@ -17,11 +17,6 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-
-        Connection conn = MySQLConnection.getConnection();
-        EmployeeDao employeeDao = new EmployeeDao();
-
-        employeeDao.findAll();
     }
 
     public static void main(String[] args) {
