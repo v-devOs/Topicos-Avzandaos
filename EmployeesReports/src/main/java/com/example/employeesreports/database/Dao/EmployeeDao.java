@@ -22,13 +22,8 @@ public class EmployeeDao extends MySQLConnection implements Dao<Employee> {
             ResultSet rs = statement.executeQuery();
 
             if( rs.next() ){
-                Employee employee = new Employee(
-                        rs.getInt("emp_no"),
-                        rs.getString("first_name"),
-                        rs.getString("last_name"),
-                        rs.getString("gender"),
-                        rs.getDate("hire_date")
-                );
+                Employee employee = createEmpleoyee(rs);
+                
                 optionalEmployee = Optional.of(employee);
             }
         } catch (SQLException e) {
@@ -36,25 +31,30 @@ public class EmployeeDao extends MySQLConnection implements Dao<Employee> {
         }
 
         return optionalEmployee;
-
-
     }
 
     @Override
     public List<Employee> findAll() {
         List<Employee> employees = FXCollections.observableArrayList();
-        String query = "select * from employee";
+        String query = "select * from employees limit 10";
 
         try {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 
             while (rs.next()){
+                employees.add( createEmpleoyee(rs) );
+            }
 
+            for (Employee emp : employees
+                 ) {
+                System.out.println( emp.getFirstName());
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        
+        return employees;
     }
 
     @Override
@@ -70,5 +70,19 @@ public class EmployeeDao extends MySQLConnection implements Dao<Employee> {
     @Override
     public boolean delete(int id) {
         return false;
+    }
+    
+    private Employee createEmpleoyee(ResultSet rs ){
+        try{
+            return new Employee(
+                    rs.getInt("emp_no"),
+                    rs.getString("first_name"),
+                    rs.getString("last_name"),
+                    rs.getString("gender"),
+                    rs.getDate("hire_date")
+            );
+        }catch ( SQLException e ){
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.employeesreports;
 
+import com.example.employeesreports.database.Dao.EmployeeDao;
 import com.example.employeesreports.database.MySQLConnection;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +19,9 @@ public class Application extends javafx.application.Application {
         stage.show();
 
         Connection conn = MySQLConnection.getConnection();
+        EmployeeDao employeeDao = new EmployeeDao();
 
+        employeeDao.findAll();
     }
 
     public static void main(String[] args) {
