@@ -4,13 +4,13 @@ import java.sql.Date;
 
 public class Employee {
     private int empNo;
-    private String firstName, lastName;
-    private char gender;
+    private String firstName, lastName, gender;
+
     private Date hireDate;
 
-    Employee(){}
+    public Employee(){}
 
-    Employee( int empNo, String firstName, String lastName, char gender, Date hireDate ){
+    public Employee( int empNo, String firstName, String lastName, String gender, Date hireDate ){
         this.empNo = empNo;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -23,7 +23,7 @@ public class Employee {
     public int getEmpNo(){ return empNo; }
     public String getFirstName(){ return firstName; }
     public String getLastName(){ return lastName; }
-    public char getGender(){ return gender; }
+    public String getGender(){ return gender; }
     public Date getHireDate(){ return hireDate; }
 
     // Methods set
@@ -36,7 +36,7 @@ public class Employee {
     public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
     }
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
     public void setLastName(String lastName) {
