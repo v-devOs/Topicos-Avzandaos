@@ -7,8 +7,12 @@ module com.example.employeesreports {
     requires org.kordamp.ikonli.javafx;
     requires kernel;
     requires layout;
+
     requires org.slf4j;
     requires org.apache.logging.log4j;
+
+    requires java.desktop;
+    requires io;
 
 
     opens com.example.employeesreports to javafx.fxml;

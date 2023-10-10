@@ -77,6 +77,11 @@
               <FontIcon iconLiteral="fab-wpforms" iconSize="32" iconColor="#801603"/>
             </graphic>
           </Button>
+          <Button fx:id="btnReport4" text="Report 1" styleClass="btn, btn-secondary">
+            <graphic>
+              <FontIcon iconLiteral="far-file-pdf" iconSize="32" iconColor="#de6620"/>
+            </graphic>
+          </Button>
         </HBox>
       </ToolBar>
     </VBox>
