@@ -23,13 +23,13 @@ import java.util.StringTokenizer;
 public class C01E04_UnitedStates {
     public static final String DATA = "src/main/resources/data/united_states.csv";
 
-    public static final String DEST = "results/chapter01/united_states.pdf";
-
-    public static void main(String args[]) throws IOException {
-        File file = new File(DEST);
-        file.getParentFile().mkdirs();
-        new C01E04_UnitedStates().createPdf(DEST);
-    }
+//    public static final String DEST = "results/chapter01/united_states.pdf";
+//
+//    public static void main(String args[]) throws IOException {
+//        File file = new File(DEST);
+//        file.getParentFile().mkdirs();
+//        new C01E04_UnitedStates().createPdf(DEST);
+//    }
 
     public void createPdf(String dest) throws IOException {
         //Initialize PDF writer

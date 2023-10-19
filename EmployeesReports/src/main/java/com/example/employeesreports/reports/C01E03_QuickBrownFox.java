@@ -16,7 +16,7 @@ public class C01E03_QuickBrownFox {
     public static final String DOG = "src/main/resources/img/dog.bmp";
     public static final String FOX = "src/main/resources/img/fox.bmp";
 
-    public static final String DEST = "results/chapter01/quick_brown_fox.pdf";
+//    public static final String DEST = "results/chapter01/quick_brown_fox.pdf";
 
 //    public static void main(String args[]) throws IOException {
 //        File file = new File(DEST);

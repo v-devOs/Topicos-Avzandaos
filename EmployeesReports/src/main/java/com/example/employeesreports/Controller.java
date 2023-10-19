@@ -1,9 +1,6 @@
 package com.example.employeesreports;
 
-import com.example.employeesreports.reports.C01E01_HelloWorld;
-import com.example.employeesreports.reports.C01E02_RickAstley;
-import com.example.employeesreports.reports.C01E03_QuickBrownFox;
-import com.example.employeesreports.reports.C01E04_UnitedStates;
+import com.example.employeesreports.reports.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,13 +16,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    public static final String DOG = "src/main/resources/img/dog.bmp";
-    public static final String FOX = "src/main/resources/img/fox.bmp";
-    public static final String DATA = "src/main/resources/data/united_states.csv";
     public static final String DEST1 = "results/chapter01/hello_world.pdf";
     public static final String DEST2 = "results/chapter01/rick_astley.pdf";
     public static final String DEST3 = "results/chapter01/quick_brown_fox.pdf";
     public static final String DEST4 = "results/chapter01/united_states.pdf";
+    public static final String DEST5 = "results/chapter01/employees.pdf";
+    public Button btnEmployeesReport;
     @FXML
     Button btnReport1, btnReport2, btnReport3, btnReport4;
     @Override
@@ -34,6 +30,7 @@ public class Controller implements Initializable {
         btnReport2.setOnAction(hanlderButtons);
         btnReport3.setOnAction(hanlderButtons);
         btnReport4.setOnAction(hanlderButtons);
+        btnEmployeesReport.setOnAction(hanlderButtons);
     }
 
     EventHandler<ActionEvent> hanlderButtons = ( event ) -> {
@@ -41,6 +38,7 @@ public class Controller implements Initializable {
         else if( event.getSource() == btnReport2 ) generateReport2();
         else if( event.getSource() == btnReport3) generateReport3();
         else if( event.getSource() == btnReport4 ) generateReport4();
+        else if( event.getSource() == btnEmployeesReport) generateEmployeesReport();
     };
 
     private void generateReport1(){
@@ -89,6 +87,16 @@ public class Controller implements Initializable {
             openFile(DEST4);
         }catch (IOException e){
             System.out.println(e);
+        }
+    }
+    public void generateEmployeesReport(){
+        try {
+            File file = new File(DEST5);
+            file.getParentFile().mkdirs();
+            new EmployeesReport().createPdf(DEST5);
+            openFile(DEST5);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

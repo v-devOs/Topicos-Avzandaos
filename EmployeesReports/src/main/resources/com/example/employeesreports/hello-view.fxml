@@ -60,29 +60,47 @@
         </menus>
       </MenuBar>
       <ToolBar>
-        <HBox spacing="5">
-          <Button fx:id="btnReport1" text="Report 1" styleClass="btn, btn-primary">
-            <graphic>
-              <FontIcon iconLiteral="far-file-pdf" iconSize="32" iconColor="#de6620"/>
-            </graphic>
-          </Button>
-          <Button  fx:id="btnReport2" text="Report 2" styleClass="btn, btn-success">
-            <graphic>
-              <FontIcon iconLiteral="fab-trello" iconColor="#18801a" iconSize="32"/>
-            </graphic>
-          </Button>
-
-          <Button fx:id="btnReport3" text="Report 3" styleClass="btn, btn-danger">
-            <graphic>
-              <FontIcon iconLiteral="fab-wpforms" iconSize="32" iconColor="#801603"/>
-            </graphic>
-          </Button>
-          <Button fx:id="btnReport4" text="Report 1" styleClass="btn, btn-secondary">
-            <graphic>
-              <FontIcon iconLiteral="far-file-pdf" iconSize="32" iconColor="#de6620"/>
-            </graphic>
-          </Button>
-        </HBox>
+        <VBox spacing="10">
+          <HBox spacing="5">
+            <Button fx:id="btnReport1" text="Report 1" styleClass="btn, btn-primary">
+              <graphic>
+                <FontIcon iconLiteral="far-file-pdf" iconSize="40" iconColor="#07093d"/>
+              </graphic>
+            </Button>
+            <Button fx:id="btnReport2" text="Report 2" styleClass="btn, btn-success">
+              <graphic>
+                <FontIcon iconLiteral="far-file-code" iconSize="40" iconColor="black"/>
+              </graphic>
+            </Button>
+            <Button fx:id="btnReport3" text="Report 3" styleClass="btn, btn-danger">
+              <graphic>
+                <FontIcon iconLiteral="far-hand-rock" iconSize="40" iconColor="white"/>
+              </graphic>
+            </Button>
+            <Button fx:id="btnReport4" text="Report 4" styleClass="btn, btn-danger">
+              <graphic>
+                <FontIcon iconLiteral="fas-biohazard" iconSize="40" iconColor="white"/>
+              </graphic>
+            </Button>
+            <Button fx:id="btnEmployeesReport" text="Employees Report" styleClass="btn, btn-success">
+              <graphic>
+                <FontIcon iconLiteral="far-address-card" iconSize="40" iconColor="white"/>
+              </graphic>
+            </Button>
+          </HBox>
+          <HBox spacing="10">
+            <Button fx:id="btnExcelReport1">
+              <graphic>
+                <FontIcon iconLiteral="fas-file-excel" iconSize="24" iconColor="green" />
+              </graphic>
+            </Button>
+            <Button fx:id="btnExcelReport2" >
+              <graphic>
+                <FontIcon iconLiteral="fas-file-excel" iconSize="24" iconColor="green" />
+              </graphic>
+            </Button>
+          </HBox>
+        </VBox>
       </ToolBar>
     </VBox>
   </top>
