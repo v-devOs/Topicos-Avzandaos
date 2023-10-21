@@ -1,0 +1,71 @@
+.root{
+    -fx-background-color: #252525;
+    -fx-font-family: "Sans Serif Collection";
+    -fx-font-size: 10pt;
+    -fx-text-fill: white;
+}
+
+.label{
+    -fx-text-fill: white;
+    -fx-font-family: Alef;
+    -fx-font-size: 15pt;
+
+}
+.title{
+    -fx-text-fill: white;
+    -fx-font-size: 25pt;
+
+}
+
+.button{
+    -fx-border-radius: 10pt;
+    -fx-background-color: #101010;
+    -fx-text-fill: white;
+    -fx-max-width: 100pt;
+    -fx-font-size: 10pt;
+}
+
+.button:hover{
+    -fx-background-color: #e50d0d;
+}
+
+
+.text-field{
+    -fx-background-color: rgba(60, 121, 168, 0.5);
+    -fx-text-fill: #c2bcbc;
+    -fx-font-family: roboto;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #000;
+    -fx-border-width: 1;
+    -fx-border-color: #fff;
+    -fx-text-fill: white;
+}
+
+.table-view .column-header .label {
+    -fx-alignment: center;
+    -fx-font-size: 16pt;
+    -fx-text-fill: white;
+
+}
+
+.table-row-cell,
+.table-row-cell:odd {
+    -fx-background-color: white;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: lightgrey;
+}
+
+.table-view .table-cell {
+    -fx-border-color: lightgrey;
+    -fx-border-width: 1 0 0 0;
+    -fx-font-size: 16pt;
+    -fx-padding: 5 3 15 3;
+}
+
+
