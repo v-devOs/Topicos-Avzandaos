@@ -1,6 +1,7 @@
 package com.example.todolistapp;
 
 import com.example.todolistapp.models.Task;
+import com.example.todolistapp.reports.PDFTASKSReport;
 import db.dao.TaskDao;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -8,7 +9,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.util.Random;
@@ -18,6 +24,9 @@ import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class HelloController implements Initializable {
+
+    @FXML
+    public Button btnGenerateReportTaskPDF;
     @FXML
     DatePicker datePicker;
     @FXML
@@ -29,12 +38,9 @@ public class HelloController implements Initializable {
     TaskDao taskDao = new TaskDao();
     Boolean editMode = false;
     Task taskSelected = null;
-
     Random random = new Random();
-
     ObservableList<Task> tasksList = FXCollections.observableArrayList();
-
-
+    public static final String DEST1 = "results/task_report_pdf.pdf";
 
 
     @FXML
@@ -110,6 +116,23 @@ public class HelloController implements Initializable {
             view.getColumns().forEach(col -> {
                 col.setPrefWidth(col.getWidth()+((tableWidth-width.get())/view.getColumns().size()));
             });
+        }
+    }
+
+    @FXML
+    protected void onGeneratePDFReport() throws IOException {
+        new PDFTASKSReport().createPDF(DEST1);
+        openFile(DEST1);
+    }
+    private void openFile(String filename)
+    {
+        if (Desktop.isDesktopSupported()) {
+            try {
+                File myFile = new File(filename);
+                Desktop.getDesktop().open(myFile);
+            } catch (IOException ex) {
+                // no application registered for PDFs
+            }
         }
     }
 }

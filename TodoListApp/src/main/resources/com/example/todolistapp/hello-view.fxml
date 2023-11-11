@@ -39,9 +39,19 @@
                 onAction="#onResetButtonClick"
                 GridPane.columnIndex="2" GridPane.rowIndex="1" minWidth="80">Reset</Button>
 
+        <Button  fx:id="btnGenerateReportTaskPDF"
+                 onAction="#onGeneratePDFReport"
+                 GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="3"
+        >
+            Generate Task Report PDF
+        </Button>
+        <Button  fx:id="btnGenerateReportTaskExcel" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="3" >
+            Generate Task Report Excel
+        </Button>
 
-        <TableView fx:id="tableTask" GridPane.columnIndex="0" GridPane.rowIndex="3"
-                   GridPane.columnSpan="3">
+
+        <TableView fx:id="tableTask" GridPane.columnIndex="0" GridPane.rowIndex="5"
+                   GridPane.columnSpan="4">
             <columns>
                 <TableColumn text="ID">
                     <cellValueFactory>
