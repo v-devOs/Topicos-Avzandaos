@@ -1,6 +1,7 @@
 package com.example.todolistapp;
 
 import com.example.todolistapp.models.Task;
+import com.example.todolistapp.reports.ExcelReport;
 import com.example.todolistapp.reports.PDFTASKSReport;
 import db.dao.TaskDao;
 import javafx.application.Platform;
@@ -26,7 +27,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class HelloController implements Initializable {
 
     @FXML
-    public Button btnGenerateReportTaskPDF;
+    public Button btnGenerateReportTaskPDF, btnGenerateReportTaskExcel;
     @FXML
     DatePicker datePicker;
     @FXML
@@ -41,6 +42,7 @@ public class HelloController implements Initializable {
     Random random = new Random();
     ObservableList<Task> tasksList = FXCollections.observableArrayList();
     public static final String DEST1 = "results/task_report_pdf.pdf";
+    public static final String DEST2 = "results/task_report_excel.xlsx";
 
 
     @FXML
@@ -123,6 +125,12 @@ public class HelloController implements Initializable {
     protected void onGeneratePDFReport() throws IOException {
         new PDFTASKSReport().createPDF(DEST1);
         openFile(DEST1);
+    }
+
+    @FXML
+    protected void onGenerateExcelReport(){
+        new ExcelReport().createExcel(DEST2);
+        openFile(DEST2);
     }
     private void openFile(String filename)
     {

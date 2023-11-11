@@ -45,7 +45,10 @@
         >
             Generate Task Report PDF
         </Button>
-        <Button  fx:id="btnGenerateReportTaskExcel" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="3" >
+        <Button  fx:id="btnGenerateReportTaskExcel"
+                 onAction="#onGenerateExcelReport"
+                 GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="3"
+        >
             Generate Task Report Excel
         </Button>
 

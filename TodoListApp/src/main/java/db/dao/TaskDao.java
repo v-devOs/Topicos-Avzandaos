@@ -6,7 +6,9 @@ import db.MySQLConnection;
 import javafx.collections.FXCollections;
 
 import java.sql.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public class TaskDao extends MySQLConnection implements Dao<Task> {
@@ -112,5 +114,17 @@ public class TaskDao extends MySQLConnection implements Dao<Task> {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Map<Task, Integer> getTaskToExcelReport(){
+        Map<Task, Integer> results = new HashMap<>();
+
+        List<Task> tasks = findAll();
+
+        for (Task task: tasks) {
+            results.put(task, task.getId());
+        }
+
+        return results;
     }
 }
