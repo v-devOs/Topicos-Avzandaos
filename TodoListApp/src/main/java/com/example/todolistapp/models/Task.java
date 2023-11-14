@@ -1,6 +1,7 @@
 package com.example.todolistapp.models;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Task {
     private int id;
@@ -8,6 +9,8 @@ public class Task {
     private String description;
     private Boolean status;
     private Date dueDate;
+
+    private String label;
 
     public Task() {
     }
@@ -40,6 +43,9 @@ public class Task {
     }
 
     public  Date getDueDate(){ return dueDate; }
+    public String getLabel() {
+        return label;
+    }
 
     public void setDescription(String description) {
         this.description = description;
@@ -55,5 +61,9 @@ public class Task {
 
     public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

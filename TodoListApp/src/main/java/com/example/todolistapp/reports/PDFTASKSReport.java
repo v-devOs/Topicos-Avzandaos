@@ -33,7 +33,7 @@ public class PDFTASKSReport {
         PdfFont font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
         PdfFont bold = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
 
-        Table table = new Table(UnitValue.createPercentArray( new float[]{2,4,6,3,3})).useAllAvailableWidth();
+        Table table = new Table(UnitValue.createPercentArray( new float[]{2,4,6,3,3, 5})).useAllAvailableWidth();
 
         addTableHeaders(table, bold);
 
@@ -58,6 +58,7 @@ public class PDFTASKSReport {
         table.addHeaderCell(new Cell().add(new Paragraph("Description").setFont(font)));
         table.addHeaderCell(new Cell().add(new Paragraph("Status").setFont(font)));
         table.addHeaderCell(new Cell().add(new Paragraph("Due date").setFont(font)));
+        table.addHeaderCell(new Cell().add(new Paragraph("Labels").setFont(font)));
     }
 
     private void addTableRow(Table table, Task task, PdfFont font){
@@ -66,5 +67,6 @@ public class PDFTASKSReport {
         table.addCell(new Cell().add(new Paragraph(task.getDescription()).setFont(font)));
         table.addCell(new Cell().add(new Paragraph(String.valueOf(task.getStatus())).setFont(font)));
         table.addCell(new Cell().add(new Paragraph(String.valueOf(task.getDueDate())).setFont(font)));
+        table.addCell(new Cell().add(new Paragraph(task.getLabel()).setFont(font)));
     }
 }

@@ -17,16 +17,42 @@
 
 }
 
-.button{
+.button, .button-pdf, .button-excel, .button-add, .button-mark, .button-delete{
     -fx-border-radius: 10pt;
     -fx-background-color: #101010;
     -fx-text-fill: white;
     -fx-font-size: 10pt;
 }
-
 .button:hover{
     -fx-background-color: #e50d0d;
 }
+
+.button-delete{
+    -fx-background-color: #e50d0d ;
+}
+
+.button-pdf{
+    -fx-background-color: #f53232;
+}
+
+.button-excel{
+    -fx-background-color: #2dc72d;
+}
+
+.button-mark:hover{
+    -fx-background-color: #2dc72d;
+}
+
+.button-add:hover{
+    -fx-background-color: #3e3ef1;
+}
+
+
+.button-excel:hover{
+    -fx-background-color: #39a239;;
+}
+
+
 
 
 .text-field{
@@ -46,7 +72,7 @@
 
 .table-view .column-header .label {
     -fx-alignment: center;
-    -fx-font-size: 16pt;
+    -fx-font-size: 12pt;
     -fx-text-fill: white;
 
 }
@@ -63,7 +89,7 @@
 .table-view .table-cell {
     -fx-border-color: lightgrey;
     -fx-border-width: 1 0 0 0;
-    -fx-font-size: 16pt;
+    -fx-font-size: 12pt;
     -fx-padding: 5 3 15 3;
 }
 

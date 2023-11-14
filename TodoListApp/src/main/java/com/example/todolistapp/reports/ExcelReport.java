@@ -50,12 +50,14 @@ public class ExcelReport {
                XSSFCell cellDescTask = row.createCell(2);
                XSSFCell cellStatusTask = row.createCell(3);
                XSSFCell cellDueDateTask = row.createCell(4);
+               XSSFCell cellLabel = row.createCell(5);
 
                cellNoTask.setCellValue(key.getId());
                cellTitleTask.setCellValue(key.getName());
                cellDescTask.setCellValue(key.getDescription());
                cellStatusTask.setCellValue(key.getStatus());
                cellDueDateTask.setCellValue(String.valueOf(key.getDueDate()));
+               cellLabel.setCellValue(key.getLabel());
 
             });
 
@@ -64,6 +66,7 @@ public class ExcelReport {
             sheet1.autoSizeColumn(2);
             sheet1.autoSizeColumn(3);
             sheet1.autoSizeColumn(4);
+            sheet1.autoSizeColumn(5);
 
             FileOutputStream outputStream = new FileOutputStream(dest);
             workbook.write(outputStream);
@@ -90,12 +93,14 @@ public class ExcelReport {
         XSSFCell cellDescTask = row.createCell(2);
         XSSFCell cellStatusTask = row.createCell(3);
         XSSFCell cellDueDate = row.createCell(4);
+        XSSFCell cellLabel = row.createCell(5);
 
         cellNoTask.setCellValue("No Task");
         cellTitleTask.setCellValue("Title");
         cellDescTask.setCellValue("Description");
         cellStatusTask.setCellValue("Status");
         cellDueDate.setCellValue("Due Date");
+        cellLabel.setCellValue("Label");
 
     }
 }

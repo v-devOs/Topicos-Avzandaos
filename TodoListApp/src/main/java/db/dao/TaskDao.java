@@ -56,6 +56,7 @@ public class TaskDao extends MySQLConnection implements Dao<Task> {
                 task.setDescription(rs.getString("description"));
                 task.setStatus(rs.getBoolean("status"));
                 task.setDueDate(rs.getDate("dueDate"));
+                task.setLabel(rs.getString("label"));
                 taskList.add(task);
             }
 
@@ -68,33 +69,33 @@ public class TaskDao extends MySQLConnection implements Dao<Task> {
     @Override
     public boolean save(Task task) {
         String query = "insert into tasks " +
-                " (name, description, status, dueDate)" +
-                " values (?, ?, ?, ?)";
+                " (name, description, status, dueDate, label)" +
+                " values (?, ?, ?, ? ,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, task.getName());
             ps.setString(2, task.getDescription());
             ps.setBoolean(3, task.getStatus());
-             ps.setDate(4, task.getDueDate());
+            ps.setDate(4, task.getDueDate());
+            ps.setString(5,task.getLabel());
             ps.execute();
             return true;
         } catch (SQLException e) {
-            //throw new RuntimeException(e);
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return false;
-
     }
     @Override
     public boolean update(Task task) {
-        String query = "update tasks set name=?, description=?, status=?, dueDate=?  where id = ?";
+        String query = "update tasks set name=?, description=?, status=?, dueDate=?, label=?  where id = ?";
         try {
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, task.getName());
             ps.setString(2, task.getDescription());
             ps.setBoolean(3, task.getStatus());
-            // tasksps.setDate(4, task.getDueDate());
-            ps.setInt(5, task.getId());
+            ps.setDate(4, task.getDueDate());
+            ps.setString(5, task.getLabel());
+            ps.setInt(6, task.getId());
+
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -126,5 +127,36 @@ public class TaskDao extends MySQLConnection implements Dao<Task> {
         }
 
         return results;
+    }
+
+    public int[] getTotalCompleteAndIncompleteTask(){
+        int[] totals = new int[2];
+
+        String query = "select * from (\n" +
+                "    ( select count(t.status) as incompletas\n" +
+                "        from tasks t\n" +
+                "        where t.status = false\n" +
+                "    ) as incompletas,\n" +
+                "    ( select count(t.status) as completas\n" +
+                "          from tasks t\n" +
+                "          where t.status = true\n" +
+                "    ) as completas\n" +
+                ")";
+        try{
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(query);
+
+            while (rs.next()){
+
+                totals[0] = rs.getInt("incompletas");
+                totals[1] = rs.getInt("completas");
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return totals;
     }
 }
